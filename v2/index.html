@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="./support.js"></script>
+<style>.ins-grid{grid-template-columns:repeat(8,1fr)}@media (max-width:1100px){.ins-grid{grid-template-columns:repeat(4,1fr)}}@media (max-width:560px){.ins-grid{grid-template-columns:repeat(2,1fr)}}</style>
 </head>
 <body>
 <x-dc>
@@ -267,7 +268,7 @@ input::placeholder,textarea::placeholder{color:#7f9bb2}
         <p style="margin:0;color:#566472">Eligible procedures can be partially covered by MediSave, provided they meet MOH medical necessity criteria. We are partnered with leading Integrated Shield Plan insurers and corporate panels, and assist with financial counselling, pre-authorisation, e-filing and claims.</p>
       </div>
     </div>
-    <div data-reveal="" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:16px;margin-top:48px">
+    <div data-reveal="" class="ins-grid" style="display:grid;gap:16px;margin-top:48px">
       <sc-for list="{{ insurers }}" as="ins" hint-placeholder-count="16">
         <div style="background:#ffffff;border:1px solid #e4dcc8;border-radius:14px;display:grid;place-items:center;height:88px;padding:16px 24px">
           <img src="{{ ins.src }}" alt="{{ ins.alt }}" style="max-height:36px;max-width:100%;width:auto;object-fit:contain">

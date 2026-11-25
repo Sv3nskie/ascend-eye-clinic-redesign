@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="./support.js"></script>
+<style>.ins-grid{grid-template-columns:repeat(8,1fr)}@media (max-width:1100px){.ins-grid{grid-template-columns:repeat(4,1fr)}}@media (max-width:560px){.ins-grid{grid-template-columns:repeat(2,1fr)}}</style>
 </head>
 <body>
 <x-dc>
@@ -211,7 +212,7 @@ input::placeholder,textarea::placeholder{color:#7f9bb2}
         <p style="margin:0">Our staff assist with financial counselling, pre-authorisation, e-filing for cashless procedures and claim documentation.</p>
       </div>
     </div>
-    <div data-reveal="" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:1px;margin-top:clamp(48px,6vw,80px);background:#e4dcc8;border:1px solid #e4dcc8">
+    <div data-reveal="" class="ins-grid" style="display:grid;gap:1px;margin-top:clamp(48px,6vw,80px);background:#e4dcc8;border:1px solid #e4dcc8">
       <sc-for list="{{ insurers }}" as="ins" hint-placeholder-count="16">
         <div style="background:#faf6ec;display:grid;place-items:center;height:96px;padding:18px">
           <img src="{{ ins.src }}" alt="{{ ins.alt }}" style="max-height:38px;max-width:100%;width:auto;object-fit:contain;filter:grayscale(1);mix-blend-mode:multiply;opacity:.8">
