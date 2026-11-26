@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Montserrat:wght@400;500;600&display=swap">
+<style>
+body{margin:0;background:#faf6ec;color:#17212b;font-family:Montserrat,'Century Gothic',sans-serif;-webkit-font-smoothing:antialiased}
+*,*::before,*::after{box-sizing:border-box}
+a{color:#072e4d;text-decoration:none}
+a:hover{color:#17527f}
+::selection{background:#ece7d3;color:#072e4d}
+:focus-visible{outline:2px solid #b4a45d;outline-offset:2px}
+input::placeholder,textarea::placeholder{color:#8a96a3}
+</style>
+</helmet>
+
+<div ref="{{ rootRef }}" style="background:#faf6ec;color:#17212b;font-family:Montserrat,'Century Gothic',sans-serif;overflow-x:clip">
+
+<header style="position:fixed;top:0;left:0;right:0;z-index:50;background:#072e4d;box-shadow:{{ navShadow }};transition:box-shadow 300ms ease-out">
+  <div style="max-width:1360px;margin:0 auto;padding:14px clamp(24px,4vw,56px);display:flex;align-items:center;justify-content:space-between;gap:24px">
+    <a href="#top" aria-label="Ascend Eye Clinic" style="display:block;flex:none"><img src="assets/ascend-logo-white.png" alt="Ascend Eye Clinic" style="height:clamp(34px,3.4vw,42px);width:auto;display:block"></a>
+    <sc-if value="{{ wide }}" hint-placeholder-val="{{ true }}">
+      <nav style="display:flex;gap:clamp(20px,2.6vw,36px);align-items:center;font-size:16px;font-weight:500">
+        <a href="#doctor" style="color:#ffffff" style-hover="color:#cfc498">Dr Errol Chan</a>
+        <a href="#care" style="color:#ffffff" style-hover="color:#cfc498">Treatments</a>
+        <a href="#symptoms" style="color:#ffffff" style-hover="color:#cfc498">Symptoms</a>
+        <a href="#coverage" style="color:#ffffff" style-hover="color:#cfc498">Insurance</a>
+        <a href="#contact" style="color:#ffffff" style-hover="color:#cfc498">Contact</a>
+      </nav>
+    </sc-if>
+    <div style="display:flex;align-items:center;gap:20px;flex:none">
+      <sc-if value="{{ wide }}" hint-placeholder-val="{{ true }}">
+        <a href="tel:+6563203788" style="font-size:16px;font-weight:500;color:#ffffff" style-hover="color:#cfc498">+65 6320 3788</a>
+      </sc-if>
+      <a href="#contact" style="display:inline-flex;align-items:center;padding:11px 22px;border-radius:999px;background:#b4a45d;color:#072e4d;font-size:16px;font-weight:600;transition:background 200ms ease-out,transform 200ms ease-out" style-hover="background:#a3924f;color:#072e4d;transform:translateY(-1px)">Book a consultation</a>
+    </div>
+  </div>
+</header>
+
+<section id="top" data-screen-label="01 Hero" style="background:#faf6ec">
+  <div style="max-width:1360px;margin:0 auto;min-height:100svh;padding:clamp(104px,11vw,128px) clamp(24px,4vw,56px) clamp(32px,4vw,48px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,460px),1fr));gap:clamp(32px,5vw,72px);align-items:center">
+    <div ref="{{ heroRef }}" style="min-width:0">
+      <div style="font-size:16px;font-weight:600;color:#6f6330;margin-bottom:20px">Farrer Park Medical Centre, Singapore</div>
+      <h1 style="font-family:'Cormorant Garamond',Georgia,serif;font-weight:600;font-size:clamp(48px,5.6vw,88px);line-height:1;letter-spacing:-.01em;margin:0;color:#072e4d;text-wrap:balance">Restoring vision, transforming lives</h1>
+      <div style="display:flex;flex-direction:column;align-items:flex-start;gap:28px;margin-top:clamp(24px,3vw,36px)">
+        <p style="margin:0;max-width:40ch;font-size:18px;line-height:1.65;color:#17212b;text-wrap:pretty">Personalised eye care led by Dr Errol Chan, with over 10,000 eye surgeries performed.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:12px">
+          <a href="#contact" style="display:inline-flex;align-items:center;gap:12px;padding:18px 30px;border-radius:999px;background:#b4a45d;color:#072e4d;font-size:17px;font-weight:600;transition:background 200ms ease-out,transform 200ms ease-out,box-shadow 200ms ease-out" style-hover="background:#a3924f;color:#072e4d;transform:translateY(-1px);box-shadow:0 8px 24px rgba(180,164,93,.35)">Request a consultation<span>→</span></a>
+          <a href="https://wa.me/6588183788?text=Hi%2C%20I%20would%20like%20to%20book%20a%20consultation%20with%20Dr%20Errol%20Chan" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;padding:18px 28px;border-radius:999px;border:1.5px solid #072e4d;color:#072e4d;font-size:17px;font-weight:600;transition:background 200ms ease-out,transform 200ms ease-out" style-hover="background:#ece7d3;color:#072e4d;transform:translateY(-1px)">WhatsApp</a>
+        </div>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:10px 32px;margin-top:clamp(28px,4vw,44px);padding-top:24px;border-top:1px solid #e4dcc8;font-size:16px;font-weight:500;color:#566472">
+        <span>International fellowship-trained</span><span>Over 18 years of experience</span><span>Personalised eye care</span>
+      </div>
+    </div>
+    <div style="position:relative;height:clamp(360px,calc(100svh - 180px),760px);border-radius:28px;overflow:hidden;background:#072e4d">
+      <video ref="{{ heroVideoRef }}" autoplay="" muted="" loop="" playsinline="" poster="https://ascendeyeclinic.com.sg/wp-content/uploads/2026/09/AdobeStock_1302861675.jpg" src="https://ascendeyeclinic.com.sg/wp-content/uploads/2026/10/AdobeStock_190734623.webm" style="position:absolute;inset:-8% 0;width:100%;height:116%;object-fit:cover;display:block;will-change:transform"></video>
+    </div>
+  </div>
+</section>
+
+<section data-screen-label="02 Intro" style="background:#faf6ec">
+  <div style="max-width:1360px;margin:0 auto;padding:clamp(80px,11vw,150px) clamp(24px,4vw,56px)">
+    <div data-reveal="" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:clamp(24px,6vw,96px);align-items:start">
+      <div style="font-size:16px;font-weight:600;color:#6f6330;padding-top:12px">Ascend Eye Clinic</div>
+      <div style="grid-column:span 2;min-width:0">
+        <p style="font-family:'Cormorant Garamond',Georgia,serif;font-weight:600;font-size:clamp(32px,4vw,56px);line-height:1.15;margin:0;color:#072e4d;text-wrap:pretty">Vision is our most valued sense. We take the time to understand your eyes and care for them for life</p>
+        <a href="#doctor" style="display:inline-flex;gap:12px;align-items:center;margin-top:36px;font-size:17px;font-weight:600;color:#072e4d;padding-bottom:6px;border-bottom:1.5px solid #b4a45d">Meet Dr Errol Chan <span>→</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section data-screen-label="03 Aperture" style="background:#ffffff">
+  <div data-reveal="" style="max-width:1360px;margin:0 auto;padding:clamp(80px,10vw,130px) clamp(24px,4vw,56px) 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr));gap:24px 64px;align-items:end">
+    <h2 style="font-family:'Cormorant Garamond',Georgia,serif;font-weight:600;font-size:clamp(32px,4vw,56px);line-height:1.05;margin:0;color:#072e4d">Clarity for every stage of life</h2>
+    <p style="margin:0;max-width:44ch;font-size:18px;line-height:1.65;color:#17212b">From reading to driving to recognising faces, we find the cause of your symptoms and protect your sight.</p>
+  </div>
+  <div ref="{{ apRef }}" style="position:relative;height:220vh">
+    <div style="position:sticky;top:0;height:100vh;overflow:hidden">
+      <div ref="{{ apImgRef }}" style="position:absolute;left:50%;top:50%;width:150vmax;height:150vmax;margin:-75vmax 0 0 -75vmax;border-radius:50%;overflow:hidden;transform:scale(.15);will-change:transform;backface-visibility:hidden"><div ref="{{ apInnerRef }}" style="position:absolute;left:50%;top:50%;width:100vw;height:100vh;margin:-50vh 0 0 -50vw;will-change:transform">
+        <img src="https://ascendeyeclinic.com.sg/wp-content/uploads/2026/09/AdobeStock_1302861675.jpg" alt="" style="width:100%;height:100%;object-fit:cover;display:block">
+      </div></div>
+      <div ref="{{ apRingRef }}" style="position:absolute;left:50%;top:50%;width:22vmax;height:22vmax;margin:-11vmax 0 0 -11vmax;border-radius:50%;border:2px solid #b4a45d;pointer-events:none;will-change:transform,opacity"></div>
+    </div>
+  </div>
+</section>
+
+<section data-screen-label="04 Credentials" style="background:#072e4d;color:#ffffff">
+  <div data-reveal="" style="max-width:1360px;margin:0 auto;padding:clamp(64px,8vw,100px) clamp(24px,4vw,56px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:clamp(28px,4vw,56px)">
+    <sc-for list="{{ stats }}" as="s" hint-placeholder-count="4">
+      <div style="display:flex;flex-direction:column;gap:10px;padding-top:22px;border-top:1px solid rgba(207,196,152,.5)">
+        <div style="font-family:'Cormorant Garamond',Georgia,serif;font-weight:600;font-size:clamp(32px,4vw,56px);line-height:1;color:#cfc498">{{ s.n }}</div>
+        <div style="font-size:16px;font-weight:500;line-height:1.5;color:#d6e0e9">{{ s.l }}</div>
+      </div>
+    </sc-for>
+  </div>
+</section>
+
+<section id="doctor" data-screen-label="05 Doctor" style="background:#faf6ec">
+  <div style="max-width:1360px;margin:0 auto;padding:clamp(80px,11vw,150px) clamp(24px,4vw,56px)">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:clamp(40px,6vw,100px);align-items:center">
+      <div data-reveal="" style="aspect-ratio:4/5;border-radius:28px;overflow:hidden;background:#f2ead6">
+        <img src="https://ascendeyeclinic.com.sg/wp-content/uploads/2026/09/AscendEyeClinic_015_V3-1024x683.webp" alt="Dr Errol Chan" style="width:100%;height:100%;object-fit:cover;object-position:60% 30%;display:block">
+      </div>
+      <div data-reveal="" style="min-width:0">
+        <h2 style="font-family:'Cormorant Garamond',Georgia,serif;font-weight:600;font-size:clamp(32px,4vw,56px);line-height:1;margin:0 0 14px;color:#072e4d">Dr Errol Chan</h2>
+        <div style="font-size:17px;font-weight:600;line-height:1.5;color:#17212b">Medical Director and Senior Consultant Ophthalmologist</div>
+        <div style="margin:6px 0 32px;font-size:16px;line-height:1.6;color:#566472;max-width:60ch">MBBS (S'pore), MMed (Ophth), MRCS (Edin), FRCS (Edin), FRCOphth (Lond), FRCS (Glasg), FRCS (Canada), FAMS (S'pore)</div>
+        <div role="tablist" style="display:flex;flex-wrap:wrap;gap:6px 28px;margin-bottom:24px;border-bottom:1px solid #e4dcc8">
+          <sc-for list="{{ docTabs }}" as="t" hint-placeholder-count="3">
+            <button type="button" role="tab" onClick="{{ t.pick }}" style="background:none;border:0;padding:0 0 12px;margin-bottom:-1px;cursor:pointer;font-family:Montserrat,sans-serif;font-size:16px;font-weight:600;color:{{ t.color }};border-bottom:2px solid {{ t.line }};transition:color 200ms ease-out,border-color 200ms ease-out">{{ t.label }}</button>
+          </sc-for>
+        </div>
+        <p style="margin:0;font-size:18px;line-height:1.7;color:#17212b;max-width:54ch;min-height:6.8em;text-wrap:pretty">{{ docBody }}</p>
+        <blockquote style="margin:36px 0 0;padding:0 0 0 24px;border-left:2px solid #b4a45d;font-family:'Cormorant Garamond',Georgia,serif;font-weight:600;font-size:clamp(22px,2vw,28px);line-height:1.35;color:#072e4d;max-width:34ch">"Good vision transforms my patients' quality of life. That drives me to do better every day"</blockquote>
+        <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-top:40px">
+          <a href="#contact" style="display:inline-flex;align-items:center;gap:12px;padding:16px 28px;border-radius:999px;background:#072e4d;color:#ffffff;font-size:17px;font-weight:600;transition:background 200ms ease-out,transform 200ms ease-out" style-hover="background:#041d31;color:#ffffff;transform:translateY(-1px)">Consult Dr Chan <span>→</span></a>
+          <a href="https://ascendeyeclinic.com.sg/dr-errol-chan/" style="display:inline-flex;align-items:center;padding:16px 24px;font-size:17px;font-weight:600;color:#072e4d" style-hover="color:#17527f">Full profile</a>
+        </div>
+      </div>
+    </div>
+    <div data-reveal="" style="display:flex;flex-wrap:wrap;align-items:center;gap:24px clamp(24px,5vw,72px);margin-top:clamp(64px,8vw,110px);padding-top:32px;border-top:1px solid #e4dcc8">
+      <span style="font-size:16px;font-weight:500;color:#566472">As featured on</span>
+      <img src="https://ascendeyeclinic.com.sg/wp-content/uploads/2026/09/The_Straits_Times_Logo2.png" alt="The Straits Times" style="height:26px;width:auto;filter:grayscale(1);mix-blend-mode:multiply;opacity:.8">
+      <img src="https://ascendeyeclinic.com.sg/wp-content/uploads/2026/09/CNA938_logo2.png" alt="CNA938" style="height:30px;width:auto;filter:grayscale(1);mix-blend-mode:multiply;opacity:.8">
+      <img src="https://ascendeyeclinic.com.sg/wp-content/uploads/2026/09/prime-logo2.png" alt="Prime" style="height:28px;width:auto;filter:grayscale(1);mix-blend-mode:multiply;opacity:.8">
+    </div>
+  </div>
+</section>
+
+<section id="care" data-screen-label="06 Treatments" style="background:#072e4d;color:#ffffff">
+  <div style="max-width:1360px;margin:0 auto;padding:clamp(80px,11vw,150px) clamp(24px,4vw,56px)">
+    <div data-reveal="" style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:24px;margin-bottom:clamp(40px,5vw,72px)">
+      <h2 style="font-family:'Cormorant Garamond',Georgia,serif;font-weight:600;font-size:clamp(32px,4vw,56px);line-height:1.05;margin:0;color:#ffffff">How we can help</h2>
+      <p style="margin:0;max-width:40ch;font-size:18px;line-height:1.65;color:#d6e0e9">From routine screening to complex eye surgery.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr));gap:clamp(32px,6vw,96px);align-items:start">
+      <div role="tablist" style="display:flex;flex-direction:column">
+        <sc-for list="{{ services }}" as="sv" hint-placeholder-count="5">
+          <button type="button" onMouseEnter="{{ sv.pick }}" onClick="{{ sv.pick }}" style="display:grid;grid-template-columns:44px 1fr auto;align-items:baseline;gap:12px;width:100%;background:none;border:0;border-bottom:1px solid rgba(214,224,233,.18);padding:24px 0;cursor:pointer;text-align:left;font-family:'Cormorant Garamond',Georgia,serif;color:{{ sv.color }};transition:color 280ms ease-out, padding 280ms ease-out;padding-left:{{ sv.indent }}">
+            <span style="font-family:Montserrat,sans-serif;font-size:16px;font-weight:500;color:#cfc498">{{ sv.num }}</span>
+            <span style="font-weight:600;font-size:clamp(26px,2.6vw,36px);line-height:1.1">{{ sv.name }}</span>
+            <span style="font-family:Montserrat,sans-serif;font-size:20px;opacity:{{ sv.arrow }};transition:opacity 200ms ease-out;color:#cfc498">→</span>
+          </button>
+        </sc-for>
+      </div>
+      <div style="position:sticky;top:120px;min-width:0">
+        <p style="font-size:18px;line-height:1.65;margin:0 0 28px;color:#ffffff;text-wrap:pretty">{{ svActive.lede }}</p>
+        <ul style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column">
+          <sc-for list="{{ svActive.items }}" as="it" hint-placeholder-count="5">
+            <li style="border-top:1px solid rgba(214,224,233,.15)"><a href="{{ it.href }}" style="display:flex;justify-content:space-between;gap:16px;padding:15px 0;font-size:17px;color:#d6e0e9;transition:color 200ms ease-out" style-hover="color:#cfc498"><span>{{ it.t }}</span><span style="color:#cfc498">↗</span></a></li>
+          </sc-for>
+        </ul>
+        <a href="#contact" style="display:inline-flex;align-items:center;gap:12px;margin-top:36px;padding:16px 28px;border-radius:999px;background:#b4a45d;color:#072e4d;font-size:17px;font-weight:600;transition:background 200ms ease-out,transform 200ms ease-out" style-hover="background:#a3924f;color:#072e4d;transform:translateY(-1px)">Book a consultation <span>→</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="symptoms" data-screen-label="07 Symptoms" style="background:#faf6ec">
+  <div data-reveal="" style="max-width:1360px;margin:0 auto;padding:clamp(80px,11vw,150px) clamp(24px,4vw,56px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr));gap:clamp(36px,6vw,96px);align-items:center">
+    <div>
+      <div style="font-size:16px;font-weight:600;color:#6f6330;margin-bottom:16px">A guide to your eye symptoms</div>
+      <h2 style="font-family:'Cormorant Garamond',Georgia,serif;font-weight:600;font-size:clamp(32px,4vw,56px);line-height:1.05;margin:0;color:#072e4d">What are you noticing?</h2>
+      <p style="margin:24px 0 0;max-width:40ch;font-size:18px;line-height:1.65;color:#17212b">Choose one and we will add it to your booking request.</p>
+    </div>
+    <div style="display:flex;flex-wrap:wrap;gap:12px">
+      <sc-for list="{{ symptoms }}" as="sy" hint-placeholder-count="5">
+        <button type="button" onClick="{{ sy.pick }}" style="padding:16px 26px;border-radius:999px;border:1.5px solid #072e4d;background:{{ sy.bg }};color:{{ sy.color }};font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(22px,2vw,26px);font-weight:600;cursor:pointer;transition:background 200ms ease-out,color 200ms ease-out,transform 200ms ease-out" style-hover="transform:translateY(-1px)">{{ sy.label }}</button>
+      </sc-for>
+    </div>
+  </div>
+</section>
+
+<section data-screen-label="08 Quote" style="background:#f2ead6">
+  <div data-reveal="" style="max-width:1100px;margin:0 auto;padding:clamp(80px,11vw,150px) clamp(24px,4vw,56px)">
+    <p style="font-family:'Cormorant Garamond',Georgia,serif;font-weight:600;font-size:clamp(32px,4vw,56px);line-height:1.15;margin:0;color:#072e4d;text-wrap:balance">"Vision correction is a chance to restore the sight you deserve"</p>
+    <div style="display:flex;align-items:center;gap:16px;margin-top:36px;font-size:17px;font-weight:600;color:#072e4d"><span style="width:40px;height:2px;background:#b4a45d"></span>Dr Errol Chan</div>
+  </div>
+</section>
+
+<section id="coverage" data-screen-label="09 Insurance" style="background:#ffffff">
+  <div style="max-width:1360px;margin:0 auto;padding:clamp(80px,10vw,140px) clamp(24px,4vw,56px)">
+    <div data-reveal="" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr));gap:24px clamp(32px,6vw,96px);align-items:start">
+      <div>
+        <div style="font-size:16px;font-weight:600;color:#6f6330;margin-bottom:16px">MediSave and insurance</div>
+        <h2 style="font-family:'Cormorant Garamond',Georgia,serif;font-weight:600;font-size:clamp(32px,4vw,56px);line-height:1.05;margin:0;color:#072e4d">We handle the paperwork, you focus on healing</h2>
+      </div>
+      <p style="margin:0;font-size:18px;line-height:1.65;color:#17212b;max-width:48ch">MediSave can be used for eligible procedures. We work with major Integrated Shield Plan and corporate insurers, and take care of pre-authorisation and claims for you.</p>
+    </div>
+    <div data-reveal="" style="display:grid;grid-template-columns:repeat({{ insCols }},minmax(0,1fr));gap:10px;margin-top:clamp(40px,5vw,72px)">
+      <sc-for list="{{ insurers }}" as="ins" hint-placeholder-count="16">
+        <div style="min-width:0;background:#ffffff;border:1px solid #e4dcc8;border-radius:14px;display:grid;place-items:center;height:84px;padding:14px 12px">
+          <img src="{{ ins.src }}" alt="{{ ins.alt }}" style="max-height:38px;max-width:100%;width:auto;object-fit:contain;filter:grayscale(1);opacity:.8">
+        </div>
+      </sc-for>
+    </div>
+  </div>
+</section>
+
+<section id="contact" data-screen-label="10 Booking" style="background:#faf6ec">
+  <div style="max-width:1360px;margin:0 auto;padding:clamp(80px,11vw,150px) clamp(24px,4vw,56px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,400px),1fr));gap:clamp(48px,7vw,110px);align-items:start">
+    <div data-reveal="">
+      <div style="font-size:16px;font-weight:600;color:#6f6330;margin-bottom:16px">Request a consultation</div>
+      <h2 style="font-family:'Cormorant Garamond',Georgia,serif;font-weight:600;font-size:clamp(32px,4vw,56px);line-height:1.05;margin:0;color:#072e4d">See the world clearly again</h2>
+      <p style="margin:24px 0 0;max-width:42ch;font-size:18px;line-height:1.65;color:#17212b">We will call you within 48 hours to confirm. For urgent appointments, call or WhatsApp <a href="https://wa.me/6588183788" style="font-weight:600">8818 3788</a>.</p>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:32px;margin-top:48px;font-size:17px;line-height:1.7;color:#17212b">
+        <div>
+          <div style="font-size:17px;font-weight:600;color:#072e4d;margin-bottom:8px">Clinic</div>
+          <a href="https://maps.google.com/maps?ll=1.312332,103.854269&amp;z=16&amp;cid=1716939593082082073" target="_blank" rel="noopener" style="color:#17212b" style-hover="color:#17527f">#08-15 Farrer Park Medical Centre<br>1 Farrer Park Station Road<br>Singapore 217562</a>
+        </div>
+        <div>
+          <div style="font-size:17px;font-weight:600;color:#072e4d;margin-bottom:8px">Hours</div>
+          Mon to Fri: 8.30am to 5.30pm<br>Sat: 8.30am to 1pm<br>Sun and PH: closed
+        </div>
+        <div>
+          <div style="font-size:17px;font-weight:600;color:#072e4d;margin-bottom:8px">Direct</div>
+          <a href="tel:+6563203788" style="color:#17212b" style-hover="color:#17527f">+65 6320 3788</a><br><a href="https://wa.me/6588183788" style="color:#17212b" style-hover="color:#17527f">+65 8818 3788 (WhatsApp)</a><br><a href="mailto:contact@ascendeyeclinic.sg" style="color:#17212b" style-hover="color:#17527f">contact@ascendeyeclinic.sg</a>
+        </div>
+      </div>
+    </div>
+
+    <div data-reveal="" style="background:#ffffff;border:1px solid #e4dcc8;border-radius:28px;padding:clamp(28px,4vw,52px);box-shadow:0 20px 50px rgba(7,46,77,.08)">
+      <sc-if value="{{ notSent }}" hint-placeholder-val="{{ true }}">
+        <form onSubmit="{{ submit }}" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:24px">
+          <label style="display:flex;flex-direction:column;gap:8px;font-size:16px;font-weight:500;color:#072e4d">First name<input required="" name="first" style="background:transparent;border:0;border-bottom:1.5px solid #cfd8e0;padding:10px 0;color:#17212b;font:400 17px Montserrat,sans-serif;outline:none" style-focus="border-bottom-color:#b4a45d"></label>
+          <label style="display:flex;flex-direction:column;gap:8px;font-size:16px;font-weight:500;color:#072e4d">Last name<input required="" name="last" style="background:transparent;border:0;border-bottom:1.5px solid #cfd8e0;padding:10px 0;color:#17212b;font:400 17px Montserrat,sans-serif;outline:none" style-focus="border-bottom-color:#b4a45d"></label>
+          <label style="display:flex;flex-direction:column;gap:8px;font-size:16px;font-weight:500;color:#072e4d">Email<input required="" type="email" name="email" style="background:transparent;border:0;border-bottom:1.5px solid #cfd8e0;padding:10px 0;color:#17212b;font:400 17px Montserrat,sans-serif;outline:none" style-focus="border-bottom-color:#b4a45d"></label>
+          <label style="display:flex;flex-direction:column;gap:8px;font-size:16px;font-weight:500;color:#072e4d">Phone<input required="" type="tel" name="phone" style="background:transparent;border:0;border-bottom:1.5px solid #cfd8e0;padding:10px 0;color:#17212b;font:400 17px Montserrat,sans-serif;outline:none" style-focus="border-bottom-color:#b4a45d"></label>
+          <label style="display:flex;flex-direction:column;gap:8px;font-size:16px;font-weight:500;color:#072e4d">Preferred date<input type="date" name="date" style="background:transparent;border:0;border-bottom:1.5px solid #cfd8e0;padding:10px 0;color:#17212b;font:400 17px Montserrat,sans-serif;outline:none" style-focus="border-bottom-color:#b4a45d"></label>
+          <label style="display:flex;flex-direction:column;gap:8px;font-size:16px;font-weight:500;color:#072e4d">Preferred time<select name="time" style="background:transparent;border:0;border-bottom:1.5px solid #cfd8e0;padding:10px 0;color:#17212b;font:400 17px Montserrat,sans-serif;outline:none"><option>Morning</option><option>Afternoon</option><option>Saturday</option></select></label>
+          <label style="grid-column:1 / -1;display:flex;flex-direction:column;gap:8px;font-size:16px;font-weight:500;color:#072e4d">Message<textarea name="message" rows="3" value="{{ message }}" onChange="{{ setMessage }}" placeholder="Tell us briefly about your eyes" style="background:transparent;border:0;border-bottom:1.5px solid #cfd8e0;padding:10px 0;color:#17212b;font:400 17px/1.6 Montserrat,sans-serif;outline:none;resize:vertical" style-focus="border-bottom-color:#b4a45d"></textarea></label>
+          <div style="grid-column:1 / -1;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;margin-top:8px">
+            <span style="font-size:16px;color:#566472">We reply within 48 hours</span>
+            <button type="submit" style="display:inline-flex;align-items:center;gap:12px;padding:18px 32px;border-radius:999px;border:0;background:#b4a45d;color:#072e4d;font:600 17px Montserrat,sans-serif;cursor:pointer;transition:background 200ms ease-out,transform 200ms ease-out" style-hover="background:#a3924f;transform:translateY(-1px)">Send request <span>→</span></button>
+          </div>
+        </form>
+      </sc-if>
+      <sc-if value="{{ sent }}" hint-placeholder-val="{{ false }}">
+        <div style="padding:32px 0;display:flex;flex-direction:column;gap:16px">
+          <div style="width:56px;height:56px;border-radius:50%;background:#ece7d3;display:grid;place-items:center;color:#8f8043;font-size:22px">✓</div>
+          <h3 style="font-family:'Cormorant Garamond',Georgia,serif;font-weight:600;font-size:clamp(32px,3vw,40px);line-height:1.1;margin:0;color:#072e4d">Thank you, we will be in touch</h3>
+          <p style="margin:0;font-size:18px;line-height:1.65;color:#17212b">We will call you within 48 hours to confirm your appointment.</p>
+        </div>
+      </sc-if>
+    </div>
+  </div>
+</section>
+
+<footer data-screen-label="11 Footer" style="background:#072e4d">
+  <div style="max-width:1360px;margin:0 auto;padding:48px clamp(24px,4vw,56px);display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:28px">
+    <img src="assets/ascend-logo-white.png" alt="Ascend Eye Clinic" style="height:40px;width:auto">
+    <nav style="display:flex;flex-wrap:wrap;gap:28px;font-size:16px;font-weight:500">
+      <a href="https://www.instagram.com/ascendeyeclinic/" style="color:#d6e0e9" style-hover="color:#ffffff">Instagram</a>
+      <a href="https://www.youtube.com/@AscendEyeClinic" style="color:#d6e0e9" style-hover="color:#ffffff">YouTube</a>
+      <a href="https://www.linkedin.com/company/ascendeyeclinic" style="color:#d6e0e9" style-hover="color:#ffffff">LinkedIn</a>
+      <a href="https://www.facebook.com/profile.php?id=61551945505102" style="color:#d6e0e9" style-hover="color:#ffffff">Facebook</a>
+    </nav>
+    <span style="font-size:16px;color:#b6c6d4">© 2026 Ascend Eye Clinic</span>
+  </div>
+</footer>
+
+<sc-if value="{{ showFloat }}" hint-placeholder-val="{{ false }}">
+  <div style="position:fixed;left:50%;bottom:20px;transform:translateX(-50%);z-index:60;display:flex;gap:4px;padding:6px;border-radius:999px;background:#072e4d;box-shadow:0 12px 32px rgba(7,46,77,.3)">
+    <a href="tel:+6563203788" style="padding:12px 18px;border-radius:999px;font-size:16px;font-weight:600;color:#ffffff" style-hover="background:#0d3f66;color:#ffffff">Call</a>
+    <a href="https://wa.me/6588183788" target="_blank" rel="noopener" style="padding:12px 18px;border-radius:999px;font-size:16px;font-weight:600;color:#ffffff" style-hover="background:#0d3f66;color:#ffffff">WhatsApp</a>
+    <a href="#contact" style="padding:12px 22px;border-radius:999px;background:#b4a45d;font-size:16px;font-weight:600;color:#072e4d" style-hover="background:#a3924f;color:#072e4d">Book</a>
+  </div>
+</sc-if>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;irisFollow&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;},&quot;floatingCta&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;}}">
+const U = 'https://ascendeyeclinic.com.sg/';
+const W = U + 'wp-content/uploads/';
+const DOC = [
+  { label: 'Experience', body: 'Trained at Moorfields Eye Hospital, London and McGill University, Montréal. Over 18 years in practice and more than 10,000 eye surgeries, from cataract to retina and glaucoma.' },
+  { label: 'Research', body: 'Published in over 40 ophthalmology journals and textbooks. Former Clinical Lecturer at the National University of Singapore and a clinical trial investigator.' },
+  { label: 'Approach', body: 'Every patient gets the time to understand their condition and options. His aim: the best possible vision through evidence-based care.' }
+];
+const SERVICES = [
+  { name: 'Cataract', lede: 'We replace the cloudy lens with an implant chosen for your eyes and lifestyle, often reducing your need for glasses.', items: [['Cataract surgery','cataract-treatment/'],['Monofocal Plus lens implants','monofocal-plus-lens-implants/'],['Extended depth of focus lenses','extended-depth-of-focus-edof-lens-implants/'],['Multifocal lens implants','multifocal-lens-implants/'],['Toric lens implants','toric-lens-implants/']] },
+  { name: 'Retinal diseases', lede: 'Specialist care for retinal conditions, from injections and laser to surgery.', items: [['Intravitreal injections','intravitreal-injections/'],['Retinal laser treatment','retinal-laser-treatments/'],['Vitrectomy','vitrectomy/'],['Floaters removal','floaters-removal-surgery/'],['Retinal detachment surgery','retinal-detachment-treatment/']] },
+  { name: 'Glaucoma', lede: 'Glaucoma damage cannot be reversed. Early treatment protects your sight.', items: [['Glaucoma laser','glaucoma-laser-procedures/'],['Minimally invasive glaucoma surgery','minimally-invasive-glaucoma-surgery/'],['Trabeculectomy','trabeculectomy/'],['Glaucoma drainage implants','glaucoma-drainage-implants/']] },
+  { name: 'Children\u2019s eye care', lede: 'Gentle care for myopia, lazy eye, squint and other childhood eye conditions.', items: [['Myopia control','myopia-control-with-atropine/'],['Lazy eye (amblyopia)','amblyopia/'],['Squint (strabismus)','strabismus/'],['Childhood cataracts','paediatric-cataracts/']] },
+  { name: 'Vision correction', lede: 'Laser and lens options to reduce your need for glasses, matched to your eyes.', items: [['Femto-LASIK','vision-correction/femtolasik/'],['SMILE Pro 2.0','vision-correction/smile-pro-2-0/'],['EVO ICL','vision-correction/evo-implantable-collamer-lens-icl/'],['Refractive lens exchange','vision-correction/refractive-lens-exchange/']] }
+];
+const SYMPTOMS = ['Blurred vision', 'Red eyes', 'Eye pain', 'Vision loss', 'My child\u2019s eyes'];
+const INS = [['2025/09/AIA-logo-edited.png','AIA'],['2025/09/alliance-logo-edited.png','Alliance Healthcare'],['2026/09/Allianz_Care_Positive_RGB-300x181-1.png','Allianz Care'],['2025/09/aon-logo.png','Aon'],['2025/09/axa-logo.png','AXA'],['2025/09/Cigna-Logo.png','Cigna'],['2025/09/logo_adept_health-edited.png','Adept Health'],['2025/09/fullerton-health-logo-edited.png','Fullerton Health'],['2025/09/great-eastern-logo-edited.png','Great Eastern'],['2025/09/hsbc-life-logo-edited.png','HSBC Life'],['2025/09/ihp-logo-edited.png','IHP'],['2025/09/income-logo-edited.png','Income'],['2025/09/MHC_resized-edited.png','MHC'],['2025/09/prudential-logo-edited.png','Prudential'],['2026/09/singlife.webp','Singlife'],['2025/09/TokioMarine.png','Tokio Marine']];
+
+class Component extends DCLogic {
+  state = { doc: 0, sv: 0, symptom: null, message: '', sent: false, scrolled: false, past: false, w: typeof window !== 'undefined' ? window.innerWidth : 1280 };
+  rootRef = React.createRef(); heroRef = React.createRef(); heroVideoRef = React.createRef();
+  apRef = React.createRef(); apImgRef = React.createRef(); apInnerRef = React.createRef(); apRingRef = React.createRef();
+  mouse = { x: 50, y: 50 };
+
+  componentDidMount() {
+    const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const ease = 'cubic-bezier(.22,1,.36,1)';
+    const hero = this.heroRef.current;
+    if (hero && !reduce) {
+      hero.style.opacity = '0'; hero.style.transform = 'translate3d(0,16px,0)';
+      void hero.offsetWidth;
+      setTimeout(() => { hero.style.transition = `opacity 600ms ${ease}, transform 600ms ${ease}`; hero.style.opacity = '1'; hero.style.transform = 'none'; }, 60);
+      setTimeout(() => { hero.style.opacity = '1'; hero.style.transform = 'none'; }, 1000);
+    }
+    const v = this.heroVideoRef.current;
+    if (v) {
+      v.muted = true; v.defaultMuted = true; v.playsInline = true;
+      const tryPlay = () => { if (v.paused) { const p = v.play(); p && p.catch(() => {}); } };
+      tryPlay(); v.addEventListener('canplay', tryPlay);
+      this.kick = () => tryPlay();
+      ['pointerdown','keydown','wheel','touchstart'].forEach(ev => window.addEventListener(ev, this.kick, { passive: true }));
+      this.videoTimer = setInterval(() => { if (v.paused && v.getBoundingClientRect().bottom > 0) tryPlay(); }, 1500);
+    }
+    const els = this.rootRef.current ? this.rootRef.current.querySelectorAll('[data-reveal]') : [];
+    this.io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.style.opacity = '1'; e.target.style.transform = 'none'; this.io.unobserve(e.target); } }), { threshold: 0.1 });
+    if (!reduce) els.forEach(el => {
+      if (el.getBoundingClientRect().top < window.innerHeight) return;
+      el.style.opacity = '0'; el.style.transform = 'translate3d(0,24px,0)';
+      el.style.transition = `opacity 700ms ${ease}, transform 800ms ${ease}`;
+      this.io.observe(el);
+    });
+
+    this.smooth = !reduce;
+    this.cur = this.target = window.scrollY;
+    const maxY = () => document.documentElement.scrollHeight - window.innerHeight;
+    this.onWheel = e => {
+      if (!this.smooth || e.ctrlKey || e.defaultPrevented) return;
+      let n = e.target; while (n && n !== document.body) { if (n.tagName === 'TEXTAREA' || n.tagName === 'SELECT') return; n = n.parentElement; }
+      e.preventDefault();
+      const d = e.deltaMode === 1 ? e.deltaY * 32 : e.deltaMode === 2 ? e.deltaY * window.innerHeight : e.deltaY;
+      if (!this.wheeling) this.cur = this.target = window.scrollY;
+      this.wheeling = true;
+      this.target = Math.max(0, Math.min(maxY(), this.target + d));
+    };
+    this.scrollToY = y => {
+      y = Math.max(0, Math.min(maxY(), y));
+      if (!this.smooth) { window.scrollTo(0, y); return; }
+      if (!this.wheeling) this.cur = window.scrollY;
+      this.wheeling = true; this.target = y;
+    };
+    this.onClick = e => {
+      const a = e.target.closest && e.target.closest('a[href^="#"]');
+      if (!a) return;
+      const id = a.getAttribute('href').slice(1);
+      const el = id && id !== 'top' ? document.getElementById(id) : null;
+      if (id && id !== 'top' && !el) return;
+      e.preventDefault();
+      this.scrollToY(el ? el.getBoundingClientRect().top + window.scrollY - 70 : 0);
+    };
+    this.onScroll = () => { if (!this.ownScroll) { this.wheeling = false; this.cur = this.target = window.scrollY; } this.ownScroll = false; };
+    this.onMove = e => { this.mouse = { x: e.clientX / window.innerWidth * 100, y: e.clientY / window.innerHeight * 100 }; };
+    this.onResize = () => { this.setState({ w: window.innerWidth }); this.measure(); };
+    window.addEventListener('wheel', this.onWheel, { passive: false });
+    window.addEventListener('scroll', this.onScroll, { passive: true });
+    window.addEventListener('mousemove', this.onMove, { passive: true });
+    window.addEventListener('resize', this.onResize);
+    document.addEventListener('click', this.onClick);
+    this.mx = 50; this.my = 50; this.last = 0;
+    this.measure();
+    const loop = now => {
+      const dt = Math.min(64, now - (this.last || now)) / 16.667; this.last = now;
+      if (this.wheeling) {
+        this.cur += (this.target - this.cur) * (1 - Math.pow(1 - 0.085, dt));
+        if (Math.abs(this.target - this.cur) < 0.4) { this.cur = this.target; this.wheeling = false; }
+        this.ownScroll = true;
+        window.scrollTo(0, this.cur);
+      }
+      const km = 1 - Math.pow(1 - 0.06, dt);
+      this.mx += (this.mouse.x - this.mx) * km; this.my += (this.mouse.y - this.my) * km;
+      this.tick();
+      this.raf = requestAnimationFrame(loop);
+    };
+    this.raf = requestAnimationFrame(loop);
+  }
+  measure() {
+    const ap = this.apRef.current, img = this.apImgRef.current, inner = this.apInnerRef.current;
+    if (!ap || !img || !inner) return;
+    const Wd = ap.clientWidth, H = window.innerHeight;
+    this.apW = Wd; this.apH = H; this.apD = Math.ceil(Math.hypot(Wd, H)) + 4;
+    const D = this.apD;
+    Object.assign(img.style, { width: D + 'px', height: D + 'px', marginLeft: -D / 2 + 'px', marginTop: -D / 2 + 'px' });
+    Object.assign(inner.style, { width: Wd + 'px', height: H + 'px', marginLeft: -Wd / 2 + 'px', marginTop: -H / 2 + 'px' });
+    this.ringD = Math.max(Wd, H) * 0.22;
+    const ring = this.apRingRef.current; if (ring) Object.assign(ring.style, { width: this.ringD + 'px', height: this.ringD + 'px', marginLeft: -this.ringD / 2 + 'px', marginTop: -this.ringD / 2 + 'px' });
+    this._k = null;
+  }
+  componentWillUnmount() {
+    window.removeEventListener('wheel', this.onWheel); window.removeEventListener('scroll', this.onScroll); window.removeEventListener('mousemove', this.onMove); window.removeEventListener('resize', this.onResize);
+    document.removeEventListener('click', this.onClick);
+    if (this.kick) ['pointerdown','keydown','wheel','touchstart'].forEach(ev => window.removeEventListener(ev, this.kick));
+    clearInterval(this.videoTimer); cancelAnimationFrame(this.raf); this.io && this.io.disconnect();
+  }
+  tick() {
+    const y = window.scrollY, h = window.innerHeight;
+    const scrolled = y > 20, past = y > h * 0.9;
+    if (scrolled !== this.state.scrolled || past !== this.state.past) this.setState({ scrolled, past });
+    const v = this.heroVideoRef.current;
+    if (v && y < h * 1.5) { const tr = `translate3d(0,${(y * 0.08).toFixed(1)}px,0)`; if (tr !== this._vt) { v.style.transform = tr; this._vt = tr; } }
+    const ap = this.apRef.current, img = this.apImgRef.current, inner = this.apInnerRef.current;
+    if (!ap || !img || !inner || !this.apD) return;
+    const r = ap.getBoundingClientRect();
+    if (r.bottom < -50 || r.top > h + 50) return;
+    const p = Math.min(1, Math.max(0, -r.top / (r.height - h)));
+    const e = p < .5 ? 4 * p * p * p : 1 - Math.pow(-2 * p + 2, 3) / 2;
+    const follow = (this.props.irisFollow ?? true) ? (1 - e) : 0;
+    const dx = (this.mx - 50) / 100 * this.apW * 0.18 * follow, dy = (this.my - 50) / 100 * this.apH * 0.18 * follow;
+    const s0 = this.ringD / this.apD, s = s0 + (1 - s0) * e;
+    const k = s.toFixed(4) + dx.toFixed(1) + dy.toFixed(1); if (k === this._k) return; this._k = k;
+    img.style.transform = `translate3d(${dx}px,${dy}px,0) scale(${s})`;
+    inner.style.transform = `scale(${1 / s}) translate3d(${-dx}px,${-dy}px,0)`;
+    const ring = this.apRingRef.current;
+    if (ring) { ring.style.transform = `translate3d(${dx}px,${dy}px,0) scale(${s / s0})`; ring.style.opacity = String(Math.max(0, 1 - e * 2)); }
+  }
+  pickSymptom(s) {
+    this.setState({ symptom: s, message: `I am experiencing: ${s.toLowerCase()}. ` });
+    const el = document.getElementById('contact');
+    if (el) this.scrollToY(el.getBoundingClientRect().top + window.scrollY - 70);
+  }
+  renderVals() {
+    const { doc, sv, symptom, scrolled, past, sent, w } = this.state;
+    const s = SERVICES[sv];
+    return {
+      rootRef: this.rootRef, heroRef: this.heroRef, heroVideoRef: this.heroVideoRef,
+      apRef: this.apRef, apImgRef: this.apImgRef, apInnerRef: this.apInnerRef, apRingRef: this.apRingRef,
+      wide: w >= 1080,
+      navShadow: scrolled ? '0 4px 20px rgba(7,46,77,.2)' : 'none',
+      stats: [{ n: '10,000+', l: 'Eye surgeries performed' }, { n: '18+', l: 'Years of experience' }, { n: '40+', l: 'Published papers' }, { n: '3', l: 'International fellowships' }],
+      docTabs: DOC.map((d, i) => ({ label: d.label, color: i === doc ? '#072e4d' : '#566472', line: i === doc ? '#b4a45d' : 'transparent', pick: () => this.setState({ doc: i }) })),
+      docBody: DOC[doc].body,
+      services: SERVICES.map((x, i) => ({ name: x.name, num: String(i + 1).padStart(2, '0'), color: i === sv ? '#cfc498' : '#ffffff', indent: i === sv ? '14px' : '0px', arrow: i === sv ? 1 : 0, pick: () => this.state.sv !== i && this.setState({ sv: i }) })),
+      svActive: { lede: s.lede, items: s.items.map(([t, h]) => ({ t, href: U + h })) },
+      symptoms: SYMPTOMS.map(l => ({ label: l, bg: symptom === l ? '#072e4d' : 'transparent', color: symptom === l ? '#ffffff' : '#072e4d', pick: () => this.pickSymptom(l) })),
+      insCols: w >= 900 ? 8 : w >= 560 ? 4 : 2,
+      insurers: INS.map(([p, a]) => ({ src: W + p, alt: a })),
+      message: this.state.message,
+      setMessage: e => this.setState({ message: e.target.value }),
+      submit: e => { e.preventDefault(); this.setState({ sent: true }); },
+      sent, notSent: !sent,
+      showFloat: (this.props.floatingCta ?? true) && past && !sent
+    };
+  }
+}
+</script>
+</body>
+</html>
